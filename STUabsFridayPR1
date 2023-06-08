@@ -1,0 +1,4 @@
+P_A_intersection_F=0.03
+P_F=0.2
+P_A_given_F=(P_A_intersection_F/P_F)
+print(P_A_given_F*100,"%")
