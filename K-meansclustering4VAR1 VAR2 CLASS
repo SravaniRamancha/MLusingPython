@@ -1,0 +1,32 @@
+def euclidean_distance(point1, point2):
+ return ((point1[0] - point2[0])**2 + (point1[1] - point2[1])**2)**0.5
+def k_means_classification(data, unknown_case, k):
+ centroids = data[:k]
+ min_distance = float('inf')
+ assigned_centroid = None
+ for centroid in centroids:
+  distance = euclidean_distance(unknown_case, centroid)
+  if distance < min_distance:
+   min_distance = distance
+   assigned_centroid = centroid
+ prediction = None
+ for i in range(len(data)):
+  if data[i] == assigned_centroid:
+    prediction = data[i][-1]
+    break
+ return prediction
+data = [
+[1.713, 1.586, 0],
+[0.180, 1.786, 1],
+[0.353, 1.240, 1],
+[0.940, 1.566, 0],
+[1.486, 0.759, 1],
+[1.266, 1.106, 0],
+[1.540, 0.419, 1],
+[0.459, 1.799, 1],
+[0.773, 0.186, 1]
+]
+unknown_case = [0.906, 0.606]
+k = 3
+prediction = k_means_classification(data, unknown_case, k)
+print("Predicted Classification:", prediction)
