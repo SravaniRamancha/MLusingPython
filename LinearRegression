@@ -1,0 +1,13 @@
+X = [25, 23, 24, 28, 34, 32, 42, 55, 45] 
+Y = [25000, 22000, 26000, 29000, 38600, 36500, 41000, 81000, 47500] 
+mean_X = sum(X) / len(X)
+mean_Y = sum(Y) / len(Y)
+numerator = sum((X[i] - mean_X) * (Y[i] - mean_Y) for i in range(len(X)))
+denominator = sum((X[i] - mean_X) ** 2 for i in range(len(X)))
+slope = numerator / denominator
+intercept = mean_Y - (slope * mean_X)
+def predict(x):
+    return slope * x + intercept
+x_test = 30 
+predicted_y = predict(x_test)
+print("Predicted income for age 30:", predicted_y)
