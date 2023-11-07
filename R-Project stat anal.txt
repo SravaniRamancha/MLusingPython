@@ -1,0 +1,25 @@
+Perform analytics on any standard data set 
+dat <- read.csv(file ="C:\\Users\\Dakshith\\Downloads\\Compressed\\Datasets\\inflammation-01.csv", header = FALSE) 
+head(dat) output: 
+  
+patient_1 <- dat[1, ] 
+# max inflammation for patient 1 max(patient_1) 
+  
+max(dat[2, ]) 
+  
+min(dat[, 7]) 
+  
+ 
+mean(dat[, 7]) 
+  
+sd(dat[,7]) 
+  
+summary(dat[,1:4]) 
+  
+avg_day_inflammation<-apply(dat,2,mean) 
+plot(avg_day_inflammation) 
+  
+ 
+min_day_inflammation<-apply(dat,2,min) 
+plot(min_day_inflammation) 
+  
